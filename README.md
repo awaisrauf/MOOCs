@@ -1,6 +1,5 @@
 # AI Courses
-This repository contains all the coding assignments from Artificial Intelligence related courses I have taken. Following is 
-the list of courses and corresponding assignments. 
+This repository contains all the code and notes for Moocs (online courses) I have taken.
 - [CS20SI: Tensorflow for Deep Learning Research from Stanford University](http://web.stanford.edu/class/cs20si/)
 - [Deep Learning Specialization from Coursera and deeplearning.ai](https://www.deeplearning.ai/)
 These series of courses teaches foundation of deep learning with assignments.

@@ -1,9 +1,14 @@
 # Course: Writing Efficient Python Code
 
-Course Link: https://learn.datacamp.com/courses/writing-efficient-python-code
-Certificate Link: [certificate](https://www.datacamp.com/statement-of-accomplishment/course/7c0db4a84731cf2c7d440c0c8d8bcd4b280cfed6)
+This is first course of series [Coding Best Practices with Python](https://learn.datacamp.com/skill-tracks/coding-best-practices-in-python). Course is on basic way to optimize the code to make it more readable, reduce memory footprints and make it faster. 
+The course has four chapters:
+1. Foundations for efficiencies
+2. Timing and profiling code
+3. Gaining efficiencies
+4. Basic pandas optimizations
 
+This folder has a notebook for each chapter containg notes and code snippets. 
 
-## Course Description 
-As a Data Scientist, the majority of your time should be spent gleaning actionable insights from data -- not waiting for your code to finish running. Writing efficient Python code can help reduce runtime and save computational resources, ultimately freeing you up to do the things you love as a Data Scientist. In this course, you'll learn how to use Python's built-in data structures, functions, and modules to write cleaner, faster, and more efficient code. We'll explore how to time and profile code in order to find bottlenecks. Then, you'll practice eliminating these bottlenecks, and other bad design patterns, using Python's Standard Library, NumPy, and pandas. After completing this course, you'll have the necessary tools to start writing efficient Python code!
+- Course Link: [course](https://learn.datacamp.com/courses/writing-efficient-python-code)
+- Certificate Link: [certificate](https://www.datacamp.com/statement-of-accomplishment/course/7c0db4a84731cf2c7d440c0c8d8bcd4b280cfed6)
 

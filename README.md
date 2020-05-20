@@ -1,4 +1,4 @@
-# AI Courses
+# Online Courses
 This repository contains all the code and notes for Moocs (online courses) I have taken.
 - [CS20SI: Tensorflow for Deep Learning Research from Stanford University](http://web.stanford.edu/class/cs20si/)
 - [Deep Learning Specialization from Coursera and deeplearning.ai](https://www.deeplearning.ai/)

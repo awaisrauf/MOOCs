@@ -1,0 +1,4 @@
+- Writing good README: https://classroom.udacity.com/courses/ud777
+- Writing good commit msgs: http://udacity.github.io/git-styleguide/
+- Resources to better your profile provided by Udacity: https://career-resource-center.udacity.com/linkedin-github-profiles
+- Getting Started with OpenSource: https://blog.udacity.com/2013/10/get-started-with-open-source-projects.html

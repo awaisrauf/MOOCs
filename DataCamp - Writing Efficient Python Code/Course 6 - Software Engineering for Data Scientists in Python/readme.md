@@ -14,7 +14,7 @@ About modularity, documentation, & automated testing
 - Follow pep8 conventions to write better code; use`pycodestyle` package or better IDE to test pep8 styling 
 
 - **Package**: A python module follows following structure
-  <img src="images/2.png" style="zoom:50%;" />
+  ![](images/2.png)
 
 - Use setup.py and requirements.py to make package portable
 
@@ -35,14 +35,14 @@ About modularity, documentation, & automated testing
 
 - a non-public method that you prefer that users don't use should be like `_function_name` according to pep8 conventions. 
 
-- **Class Inheritance **: <img src="images/5.png" style="zoom:100%;" />
+- **Class Inheritance **: ![](images/5.png)
 
   Grand child inheritance, use  `super.__init__(self, var)`
 
 - **Readability**:
 
   - comment should explain why a line code doing instead of what a line of code doing.
-    <img src="images/6.png" style="zoom:100%;" />
+    ![](images/6.png)
 
   - If ever in doubt about a comment, write it because under-commenting is bigger problem than over-commenting. 
 
@@ -91,13 +91,13 @@ About modularity, documentation, & automated testing
   - `pytest` testing
     
     1. write a file with the name test_name.py and populate it with test like following
-        ```python
+   ```python
     from square import square 
     
         def test_square():
             assert square(5)==25
-        ```
-        
+   ```
+  
     2. run `pytest` in command line and get results 
-    
+  
   - Use `shpinix` to create html from documentation, `Travis CI` for continuous testing, `Codecov` to see test coverage of code, `CodeClimate` to analyze readability 

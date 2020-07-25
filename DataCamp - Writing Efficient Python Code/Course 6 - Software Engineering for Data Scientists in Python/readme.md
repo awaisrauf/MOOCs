@@ -9,7 +9,9 @@ About modularity, documentation, & automated testing
 
 ## Useful Concepts
 
-- **Modularity:** Write modular code in three stages: packages, classes and functions 
+- **Modularity:** Write modular code in three stages: modules, classes and functions
+
+- Comments for each type are different: module's comment on top of file, class before `__init__.py` and functions as described below. 
 
 - Follow pep8 conventions to write better code; use`pycodestyle` package or better IDE to test pep8 styling 
 

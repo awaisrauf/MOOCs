@@ -4,7 +4,7 @@ certificate: [link](https://www.datacamp.com/statement-of-accomplishment/course/
 
 ## Useful Concepts 
 - DRY and WET Code
-	- writing reuseable functions, one function doing one thing
+	- writing reusable functions, one function doing one thing
 - using list comprehensions instead of loops
 ```python 
 filenames = ["diabetes.txt", "boston.txt", "iris.txt"]

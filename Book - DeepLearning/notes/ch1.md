@@ -2,7 +2,7 @@
 
 ### Challenge for AI
 
-- Computers easily solved many problems that were intellectually difficult for humans but straightforward for humans.
+- Computers easily solved many problems that were intellectually difficult for humans but straightforward for computers.
 - Computers can't easily solve problems that are easy for humans to do but hard to formally describe. 
 - Solution: To learn from experience by building hierarchy of concepts so that humans don't have to formally describe them. 
 

@@ -69,7 +69,7 @@
 
 ##### Eigen Value Decomposition 
 
-- Let's assume that each column of a matrix $A$  represents a dimension in space $\mathbb{R^m}$ then multiplying it with a vector $x$ i.e. $A.x$ means stretching $x$ in space in all the dimension: $i$-th dimension in space will be stretched by $A_{:,i}$.  
+- Let's assume that each column of a matrix $A$  represents a dimension in space $\mathbb{R^m}$ then multiplying it with a vector $x$ i.e. $A.x$ means stretching $x$ in space in all the dimension: $i$-th dimension in space will be stretched by $A_{:,i}$.  Rotation.
   In other words, new vector is 
   
 - **Eigen Values, Vectors**: However, Eigen vector is non-zero vector that upon multiplication with $A$ only rescales $v$ : $Av = \lambda.v$ where $\lambda$: eigen value. If $v$ is an eigen vector than any $s.v$ is also eigen vector for all $s\neq0$.

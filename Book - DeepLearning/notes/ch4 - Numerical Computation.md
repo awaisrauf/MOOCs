@@ -55,7 +55,6 @@
   x^{'} = x - \epsilon \nabla f
   $$
   
-
 - There are a number of ways to choose $\epsilon$: one is to evaluate $f(x)$ for several $\epsilon$ and use one that has minimum objective function value. This is called line search. 
 
 #### Beyond Gradient 
@@ -99,3 +98,73 @@ When $g$ aligns with eigen vector, it is the worst case and $\epsilon^* = \dfrac
 - A poor conditioning number of Hessian means derivatives differ a lot from each other. Which means that going along some directions means fast changes while on other directions, changes are slow.  Gradient descent is unaware of it so it can not explore preferentially in some directions compare to others.  Which makes it hard to find learning rate ($\epsilon$).
 - Hessian tells us something about the learning rate? A well conditioned heassian means we can use larger learning rates?
 
+##### Using Hessian for Optimization (Newton's Method)
+
+We can use Taylor series expansion for a function near a point $x^{(0)}$ and solve it for critical point to get:
+$$
+x^* = x^{(0)} - H(f)(x^{(0)})^{-1} \nabla f(x^{(0)})
+$$
+
+ >This is a useful property near a local minimum, but it can be a harmful property near a saddle point. As discussed in section 8.2.3, Newton’s method is only appropriate when the nearby critical point is a minimum (all the eigenvalues of the Hessian are positive), whereas gradient descent is not attracted to saddle points unless the gradient points toward them.  
+
+An optimization method using second derivative is called second order optimization method. 
+
+##### Lipschitz Condition
+
+Functions used in deep learning don't have guarantees. However, we can derive guarantees for functions that fulfill Lipschitz continuous condition i.e. small changes in input should reflect small changes in output. 
+$$
+\forall_x \forall_y, \text{  }||f(x) - f(y)||_2 \leq \mathcal{L} ||x-y||_2
+$$
+
+
+Lipschitz continuity is not a hard constraint so we make deep learning function Lipschitz continuous fairly easily. 
+
+##### Importance of Convex Optimization for Deep Learning 
+
+>Ideas from the analysis of convex optimization algorithms can be useful for proving the convergence of deep learning algorithms, but in general, the importance of convex optimization is greatly diminished in the context of deep learning. 
+
+
+
+### Constrained Optimization 
+
+- Constrained optimization is optimization of $f(x)$ over all values of $x \in \mathbb{S}$ where $\mathbb{S}$ is set of feasible points.
+
+#### Gradient Descent for Constrained Optimization
+
+>  One simple approach to constrained optimization is simply to modify gradient descent taking the constraint into account. If we use a small constant step size , we can make gradient descent steps, then project the result back into S.  When possible, this method can be made more efficient by projecting the gradient into the tangent space of the feasible region before taking the step or beginning the line search.
+
+#### Karush–Kuhn–Tucker (KKT)  
+
+For KKT, we first define $\mathbb{S}$ in terms of equalities and inequalities i.e.
+$$
+\mathbb{S} = \{x|\forall_i g^{(i)}(x)=0) \text{ and } \forall_j h^{(j)}(x)\leq 0) \}
+$$
+Then we can define Langragian as long as at least one feasible point exists and $f(x)$ is not permitted to have $\infty$. 
+$$
+L(x,\lambda, \alpha) = f(x) + \sum_i \lambda_i g(x) + \sum_j \alpha_j h(x)
+$$
+and we solve following optimization problem:
+$$
+\min_{\bold{x}} \max_{\bold{\lambda}} \max_{\bold{\alpha}, \bold{\alpha}\leq0}  L(x, \lambda, \alpha)
+$$
+This objective is equivalent to $\min_{x\in \mathbb{S} }f(x) $. Also
+$$
+\max_{\bold{\lambda}} \max_{\bold{\alpha}, \bold{\alpha}\leq0}  L(x, \lambda, \alpha) = f(x)
+$$
+and when a constraint is violated, it becomes $\infty$. 
+
+For maximization, 
+$$
+\min_{\bold{x}} \max_{\bold{\lambda}} \max_{\bold{\alpha}, \bold{\alpha}\leq0} -f(x) + \sum_i \lambda_i g(x) + \sum_j \alpha_j h(x)
+$$
+or maximization in the outer loop:
+$$
+\max_{\bold{x}} \min_{\bold{\lambda}} \min_{\bold{\alpha}, \bold{\alpha}\leq0} f(x) + \sum_i \lambda_i g(x) - \sum_j \alpha_j h(x)
+$$
+Sing of equalities does not matter as optimization algorithm is free to choose it. 
+
+Necessary but not sufficient conditions for KKT:
+
+1. The gradient of generalized Langraian is zero
+2. Constraints on both x and langrangian multipliers are satisficed. 
+3. Inequality constraint exhibit complementary slackness i.e. $\bold{\alpha}.h(x) = 0$

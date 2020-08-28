@@ -1,5 +1,9 @@
 # Numerical Computation
 
+[TOC]
+
+
+
 - ML algorithms uses numerical computations (iterative process of solving problems) instead of symbolic one. This can be tricky for real numbers because of the limited precision offered by digital computers. 
 - Problems tackled: optimization and solution of linear equations 
 
@@ -50,7 +54,7 @@
   $$
   \text{argmin}_{\vec{u} } \vec{u}^T\nabla f = \text{argmin}_{\vec{u}}||\vec{u}||_2  ||\nabla f||_2 cos \theta = cos \theta
   $$
-  where $\theta$ is angle between directional vector and gradient. This minimizes when angle between gradient and directional vector is -180 i.e. the directional of fastest change in $f(x)$ is opposite to direction of gradient. This gives rise to steepest descent or gradient descent which proposes to change $x$ in following way:
+  here we substituted $||u||_2=1$ and ignored the factors that don't depend on $u$; and where $\theta$ is angle between directional vector and gradient. This minimizes when angle between gradient and directional vector is -180 i.e. the directional of fastest change in $f(x)$ is opposite to direction of gradient. This gives rise to steepest descent or gradient descent which proposes to change $x$ in following way:
   $$
   x^{'} = x - \epsilon \nabla f
   $$

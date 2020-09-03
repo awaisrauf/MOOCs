@@ -240,7 +240,7 @@ Consistency means bias introduced by data diminishes as data points increases. H
 
 Where do the estimator come from? One of the method to come up with an estimator is maximum likelihood function.
 
-Suppose that we have i.i.d. data $\mathbb{X} = \{x^1, ...x^m \} \sim p_{data}(x)$  and we want to estimate it with a parametric family of distributions  $p_{model}(x; \theta)$ over a space $\theta$, or in other words we want to estimate $\theta$ given the data. We can formally write it as:
+Suppose that we have i.i.d. data $\mathbb{X} = \{x^1, ...x^m \} \sim p_{data}(x)$  and we want to estimate it with a parametric family of distributions  $p_{model}(x; \theta)$ over a space $\theta$, or in other words we want to estimate $\theta$ given the data. We can formally write it as: 
 $$
 \theta_{ML} = \arg \max_{\theta} p_{model}(x; \theta)
 \\ = \arg \max_{\theta}\Pi_{i=1}^m p_{model}(x^{(i)}; \theta)
@@ -269,10 +269,41 @@ $$
 \hat{\theta}_{ML} = \arg \max_{\theta} P(Y|X; \theta)
 $$
 
-### Properties of Maximum Likelihood 
+### Properties of Maximum Likelihood
 
 - ML estimator can be showed to be the best estimator asymptotically, as as number of examples increases to infinity in terms of its rate of convergence.
 - Under certain conditions, it is consistent i.e $\hat{\theta} \to \theta$ as $m\to \infty$. The conditions are:
   - True distribution $p_{data}$ lie within family of distributions by $p_{model}$
   - True distribution must correspond to exactly one $\theta$ . 
 - A way to compute how close we are to real $\theta$ is to compute MSE on data. Cramer Rao bound shows that   maximum likelihood is the best consistent estimator. 
+
+
+
+
+
+## Stochastic Gradient Descent 
+
+Gradient descent is slow. How? The loss function of ml models is per-class based:
+$$
+J(\theta) = \mathbb{E}_{(x,y)\sim \hat{p}_{data}} =  L(x,y ; \theta)
+\\ = \dfrac{1}{m} \sum_{i=1}^m L(x^{(i)}, y^{(i)}, \theta)
+$$
+where $L$ is per-class loss function defined as $-\log p(y|x; \theta)$,  gradient becomes:
+$$
+\nabla_{\theta} J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \nabla_{\theta} L(x^{(i)}, y^{(i)}, \theta)
+$$
+This makes gradient descent an $O(m)$ complexity algorithm which is computationally expensive. 
+
+**Insight**: offered by Stochastic gradient descent is that gradient is an expectation so we can estimate with small batch size like $\Beta = \{x^{(0)}, ..., x^{(m^{'})}\}$. Therefore, estimate of $g$ becomes:
+$$
+\vec{g} = \dfrac{1}{m^{'}} \sum_{i=1}^{m^{'}} \nabla_{\theta} L(x^{(i)}, y^{(i)}, \theta)
+$$
+ and stochastic gradient update becomes:
+$$
+\vec{\theta} = \vec{\theta} - \epsilon \vec{g}
+$$
+
+> The optimization algorithm may not be guaranteed to arrive at even a local minimum in a reasonable amount of time, but it often finds a very low value of the cost function quickly enough to be useful.  
+
+Apart form deep learning, SGD is also used to train linear models with billions of examples. Before that, kernel trick was used which has a cost of $O(m^2)$.
+

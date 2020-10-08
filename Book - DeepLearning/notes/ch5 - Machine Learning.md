@@ -20,7 +20,7 @@ A task in ML is how machine learning algorithm should process an example. The pr
   To which category in $k$ categories do an input belong. In other words, we want to learn a function $y=f(x)$: $f: x \in \R^n \to {1,2,..., k}$. The algorithm may output category or distribution over categories. 
 
 - #### Classification with Missing Inputs 
-When each part of input vector $x$ is not guaranteed to have at inference time. This often happens in medical diagnosis where it is either expensive or invaisve to get all the input. Two possible ways:
+When each part of input vector $x$ is not guaranteed to have at inference time. This often happens in medical diagnosis where it is either expensive or invasive to get all the input. Two possible ways:
 
 	1. learn functions for all the possible missing functions 
 	2. to learn probability over all the input variables and then marginalizing it for missing variables
@@ -306,4 +306,89 @@ $$
 > The optimization algorithm may not be guaranteed to arrive at even a local minimum in a reasonable amount of time, but it often finds a very low value of the cost function quickly enough to be useful.  
 
 Apart form deep learning, SGD is also used to train linear models with billions of examples. Before that, kernel trick was used which has a cost of $O(m^2)$.
+
+## Building Machine Learning Algorithms
+
+Most deep learning algorithms can be described as having three components:
+
+1. Data i.e. $\bold{X}, y$
+2. A model i.e. linear models
+3. A cost function i.e. negative log likelihood
+4. An optimizer procedure like stochastic gradient descent 
+
+#### Example 1: Linear Regression 
+
+For example, linear regression consists of data $\bold{X}, y$, a cost function like following:
+$$
+J(\bold{w}, b) = - \mathbb{E}_{X,y \sim \hat{p}_{data}} \log p_{model}(y|x)
+$$
+Where our model is $p_{model}(y|x) = \mathcal{N}(y;x^Tw+b, 1)$. It is optimized by solving this where gradient is zero and using normal equations. 
+
+> The cost function typically includes at least one term that causes the learning process to perform statistical estimation. The most common cost function is the negative log-likelihood, so that minimizing the cost function causes maximum likelihood estimation.  
+
+Cost function can also include some kind of regularization i.e. 
+$$
+J(\bold{w}, b) = \lambda ||w||^2_2 - \mathbb{E}_{X,y \sim \hat{p}_{data}} \log p_{model}(y|x)
+$$
+We can get an analytical solution for this. However, for non-linear cases, it is hard to get close form so we solve it using iterative optimization like gradient descent. 
+
+#### Example 2: Unsupervised Case - PCA 
+
+Similar formulation can also be used for un-supervised case where the data is only $\bold{X}$,  and cost function can be described as:
+$$
+J(\bold{w}, b) = \mathbb{E}_{X,y \sim p_{data}}||x-r(x)||_2^2
+$$
+where $r(x) = w^Txw$ is reconstruction function.
+
+If we can not actually evaluate cost function, we can approximate it as long as we have some way of approximating its gradient. 
+
+## Challenges Motivating Deep Learning Research 
+
+ The simple ML algorithms don't succeed in AI tasks such as or recognizing speech or objects. DL is mainly focused on solving these AI tasks. Generalizing to new examples becomes exponentially more difficult in higher dimensions, traditional mechanisms of ML fail to are insufficient to learn complex functions in higher spaces and they often impose higher costs.
+
+### Curse of Dimensionality 
+
+As the number of input dimension increases, so does the possible configurations that this variable can take. This makes generalizing in higher spaces exponentially more difficult compare to smaller dimensions as required data points increases. 
+
+<img src="imgs/42.png" style="zoom:75%;" />
+
+*We have one variable for which we are interested to distinguish 10 regions of interest. In one dimensional example, we need 10 samples, for instance, to compute the value of target. However, in 2D, we need to track 10x10 regions and in 3D, we need 10x10x10. In general, we would require $O(v^d)$ regions and examples for v regions and d dimensions.*
+
+### Local constancy and Smoothness Regularization 
+
+In order to generalize well, ML models are guided by prior believes on what kind of functions they should learn. For instance, we can regularize a model's parameters to bias it to have smaller weights. On such prior is smoothness or local constancy. This can be achieved by multiple ways, however what it requires it to learn a function $f$  that should not change in small region:
+
+$f(x+\epsilon) \approx f(x)$,
+
+i.e. if we know good answer to $f(x)$, it is probably good in the neighborhood of $x$.
+
+For instance, k-nearest neighbor matches input to samples nearest sample in the training. Similarly, kernel methods compute similarity of $k(u, v)$ and tree algorithms divide input space into k leave regions. These kind of algorithm require at least $O(k)$ examples to distinguish $O(k)$ regions in the input space and much more to generalize  well and smoothness becomes important. 
+
+Is it possible to learn a complex function that has many more regions to distinguish than examples? This can not be done via smoothness requirement. And, the function may not be smooth in higher dimensions or it may be smooth in a different ways. So the question is: can we learn a complex function efficiently that generalizes well without requiring for us to have $O(k)$ examples? The answer: yes, in DL we need $O(k)$ samples to distinguish between $O(2^k)$ regions by having some assumptions on data generating distribution and we can generalize non-locally. 
+
+ML algorithms also incorporate other beliefs such as structure etc. However, in higher dimensions, it is much more difficult to incorporate such beliefs manually as these are way more complex. The core assumption in DL: data was generated by composition of may features at multiple level of hirerechaies. 
+
+#### Manifold Learning 
+
+A manifold is connected points. It is defined in terms of neighborhood points of a point. It is locally Euclidian space. In terms of ML, it is set of points for which we can learn without smaller degree of freedom or in lower dimensions.
+
+##### Probability Mass is Highly Concentrated 
+
+If we assume interesting variations along all of $R^n$, then ML algorithms are hopeless. ML algorithms surmount this by considering that interesting data points lie only on collection of manifolds with interesting variations in the output of the learned functions occur only in the directions that lie on the manifold and everywhere else it is invalid inputs. Interesting things happen when we move from one manifold to another. 
+<img src="imgs/43.png" style="zoom:75%;" />
+*One dimensional manifold in two dimensional space.*
+
+Manifold hypothesis may not be correct always but it is for AI related tasks. We have tow kinds of observations for this hypothesis: 
+
+1.  inputs for AI-related tasks such as images, audios. language etc can not occur at random i.e. uniform noise can never resemble them in practice.  An example is in this sense is that we never see any faces if randomly sample an image from $R^n$ or we don't see any useful sentence if we make them by choosing words at random; 
+
+2. Examples are connected to each other. We can intuitively traverse through a manifold by applying transformation like in images we can apply brightness to get different kinds of coloring etc.
+
+	>In the case of images, we can certainly think  of many possible transformations that allow us to trace out a manifold in image space: we can gradually dim or brighten the lights, gradually move or rotates objects in the image, gradually alter the colors on the surfaces of objects, and so forth.  
+
+If data lies on low-dimensional manifolds, it is better for ML algo to represent the data in terms of coordinates on these manifolds rather than coordinates in the original $R^n$ space.  Like when giving direction of way, we don't give coordinates of 3D space rather coordinates of specific points of the roads. 
+
+
+
+
 

@@ -177,10 +177,31 @@ A gaussian mixture model can approximate any smooth distribution with specific n
 $$
 \sigma(x) = \dfrac{1}{1+e^{-x}}
 $$
+$\color{Blue} Blue$: $\sigma(z)\dfrac{1}{1+e^{-z}}$
+
+$\color{red}Red$: $\dfrac{d(\sigma(z))}{dz} = \dfrac{0 - \dfrac{d}{dz}(1+e^{-z})}{(1+e^{-z})^2} = \dfrac{e^{-z}}{(1+e^{-z})^2}$
+See plot at: https://www.desmos.com/calculator/fv0jjqr3g1
+
+<img src="C:/Users/Awais/Documents/Huawei/MOOCs/Book - DeepLearning/notes/imgs/46.png" style="zoom:50%;" />
+
 **Softplus Function**: Smooth version of positive part function ($x^+ = max(0,x)$), having range $(0,\infty)$:
-$$
-sf(x) = log(1+e^x)
-$$
+
+$\color{Blue} Blue: sf(z) = \log(1+e^z)$
+
+$\color{red}Red: \dfrac{d sf(z)}{dz}) = \dfrac{\dfrac{d}{dz}(1+e^z)}{1+e^z}= \dfrac{e^z}{1+e^z} = \dfrac{1}{1+e^{-z}}$ i.e.  sigmoid
+
+see plot: https://www.desmos.com/calculator/subn8luwgc
+
+<img src="imgs/47.png" style="zoom:50%;" />
+
+**Min-Max Function**
+
+$mmx(x) = \max(0, \min(x))$
+
+See plot: https://www.desmos.com/calculator/bwcvnotune
+
+<img src="imgs/48.png" style="zoom:50%;" />
+
 **Important Properties of these functions**:
 
 1. $\sigma(x) = \dfrac{e^x}{1+e^x}$ 

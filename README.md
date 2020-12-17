@@ -1,4 +1,4 @@
-# Voyage de MOOCs
+# 📖 Voyage de MOOCs
 I love online learning: it feeds my curiosity and gives me the joy of exploration with freedom. I started my MOOC journey back in 2013 on Edx with Harvard's famous course [CS50](https://cs50.harvard.edu/). A few years ago, I [found that by writing and sharing my progress, I can do things more efficentiy](http://awaisrauf.github.io/deepCuriosity/AI-RoadMap). Hence, to make my online journey more useful, I have started taking record. This repo contains all-things MOOCs. 
 
 ## Courses Progress

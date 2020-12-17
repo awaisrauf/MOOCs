@@ -8,6 +8,9 @@
 
 ## Courses Progress
 - [ ] 📕 Book - Deep Learning Book by Aaron Courville, Ian Goodfellow, and Yoshua Bengio
+  - [x] Part I: Applied Math and Machine Learning Basics
+  - [ ] Part II: Modern Practical Deep Networks
+  - [ ] Part III: Deep Learning Research
 - [x] 📊 DataCamp - Data Visulization with Python
   - [x] Course 1: Introduction to Data Visulization with Matplotlib
   - [ ] Course 2: Introduction to Data Visulization with Seaborn

@@ -1,5 +1,8 @@
 # 📖 Voyage de MOOCs
-I love online learning: it feeds my curiosity and gives me the joy of exploration with freedom. I started my MOOC journey back in 2013 on Edx with Harvard's famous course [CS50](https://cs50.harvard.edu/). A few years ago, I [found that by writing and sharing my progress, I can do things more efficentiy](http://awaisrauf.github.io/deepCuriosity/AI-RoadMap). Hence, to make my online journey more useful, I have started taking record. This repo contains all-things MOOCs. 
+I love online learning: it feeds my curiosity and gives me the joy of exploration with freedom. I started my MOOC journey back in 2013 on Edx with Harvard's famous course [CS50](https://cs50.harvard.edu/). Ever since I have taken many courses spanning many diverse fields.
+
+A few years ago, I [found that by writing and sharing my progress, I can do things more efficentiy](http://awaisrauf.github.io/deepCuriosity/AI-RoadMap). This personal finding, as I later found out, is backed by science. In the book "[Willpower](https://www.goodreads.com/book/show/11104933-willpower)", social psychologist Baumeister wrote extensively about the power of tracking progress, pre-commitment, and writing. Following this, I have started taking notes and recording my progress. This repo contains all-things MOOCs. 
+. 
 
 ## Courses Progress
 - [ ] 📕 Book - Deep Learning Book by Aaron Courville, Ian Goodfellow, and Yoshua Bengio

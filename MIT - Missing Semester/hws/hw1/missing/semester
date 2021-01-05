@@ -1,0 +1,22 @@
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+last-modified: Fri, 18 Dec 2020 21:19:27 GMT
+access-control-allow-origin: *
+etag: "5fdd1cdf-1e7e"
+expires: Sun, 20 Dec 2020 09:11:16 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 4748:0F69:1283059:166D7D9:5FDF12DC
+accept-ranges: bytes
+date: Sun, 20 Dec 2020 09:31:42 GMT
+via: 1.1 varnish
+age: 0
+x-served-by: cache-hkg17933-HKG
+x-cache: HIT
+x-cache-hits: 1
+x-timer: S1608456703.538679,VS0,VE229
+vary: Accept-Encoding
+x-fastly-request-id: 88fe5cc470b3a28a7ded87b3e9c1f6e94360707b
+content-length: 7806
+

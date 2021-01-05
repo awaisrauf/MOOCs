@@ -63,7 +63,7 @@ A measure-able function to map sample space to measure-able space. $X: \Omega\ri
 
 - **Independence**: $x \bot y$ iff $P(x,y)=P(x)P(y)$
 
-- **Conditional Independence**: $x\bot y | z$ iff $P(x=x,y=y,z=z) = P(x|z=z)P(y|z) = P(x=x, y=y|z=z)$
+- **Conditional Independence**: $x\bot y \mid z$ iff $P(x=x,y=y,z=z) = P(x \mid z=z)P(y \mid z) = P(x=x, y=y \mid z=z)$
 
 - **Expected Value**: Mean value f takes when x is drawn from P: $\mathbb{E}_{x \sim P} = \sum_x f(x)P(x)$
   Expected values are linear
@@ -163,7 +163,7 @@ Where $P(c)\sim multinouli()$
 
 #### Gaussian Mixture Distribution (Model)
 
-In Gaussian mixture model, each component of mixture distribution is a Gaussian random variable with variables: $P(x|c=i)\sim \mathcal{N}(\mu_i,  \sigma^2_i)$ and each component follows a multinoulli distribution. We can also constrain the components of mixture model i.e. all sharing covariance via $\Sigma^{(i)} = \Sigma \text{   } \forall_i $ etc. 
+In Gaussian mixture model, each component of mixture distribution is a Gaussian random variable with variables: $P(x \mid c=i)\sim \mathcal{N}(\mu_i,  \sigma^2_i)$ and each component follows a multinoulli distribution. We can also constrain the components of mixture model i.e. all sharing covariance via $\Sigma^{(i)} = \Sigma \text{   } \forall_i $ etc. 
 
 A gaussian mixture model can approximate any smooth distribution with specific non-zero error.
 
@@ -177,7 +177,7 @@ A gaussian mixture model can approximate any smooth distribution with specific n
 $$
 \sigma(x) = \dfrac{1}{1+e^{-x}}
 $$
-$\color{Blue} Blue$: $\sigma(z)\dfrac{1}{1+e^{-z}}$
+$\color{Blue} Blue$: $\sigma(z)=\dfrac{1}{1+e^{-z}}$
 
 $\color{red}Red$: $\dfrac{d(\sigma(z))}{dz} = \dfrac{0 - \dfrac{d}{dz}(1+e^{-z})}{(1+e^{-z})^2} = \dfrac{e^{-z}}{(1+e^{-z})^2}$
 See plot at: https://www.desmos.com/calculator/fv0jjqr3g1
@@ -217,7 +217,7 @@ $$
 P(x|y) = \dfrac{P(y|x).P(x)}{P(y)}
 $$
 
-where $P(y) = \sum_x P(y|x)P(x)$
+where $P(y) = \sum_x P(y \mid x)P(x)$
 
 ### Important Concepts from Measure Theory 
 

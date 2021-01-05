@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Starting program at $(date)"
+echo "Running progaram $0 with $# argumetns and PID $$"
+
+for file in "$(ls temp)"; do
+	cat "$file"
+	grep foobar "$file" > null 2> null
+	
+	if [[ $? -ne 0 ]]; then
+		echo "file $file  does not have foobar, adding one now"
+		echo "# foobar" >> "$file"
+	fi
+done
+

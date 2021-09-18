@@ -13,17 +13,6 @@ This combination consists of two steps. Start by taking/reading a few relevant c
   - [x] Part I: Applied Math and Machine Learning Basics
   - [ ] Part II: Modern Practical Deep Networks
   - [ ] Part III: Deep Learning Research
-- [x] 📊 DataCamp - Data Visulization with Python
-  - [x] Course 1: Introduction to Data Visulization with Matplotlib
-  - [ ] Course 2: Introduction to Data Visulization with Seaborn
-  - [ ] Course 3: Improving your Data Visulizations in Python
-  - [ ] Course 4: Interactive Data Visualization with Bokeh
-  - [ ] Course 5: Visualizing Geospatial Data in Python
-- [ ] 🈹 Coursera - Natural Language Processing
-  - [x] Natural Language Processing with Classification and Vector Spaces
-  - [ ] Natural Language Processing with Probabilistic Models
-  - [ ] Natural Language Processing with Sequence Models
-  - [ ] Natural Language Processing with Attention Models
 - [x] 💻 DataCamp - Coding Best Practices with Python
   - [x] Writing Efficient Python Code
   - [x] Writing Efficient Code with pandas
@@ -46,7 +35,19 @@ This combination consists of two steps. Start by taking/reading a few relevant c
   - [x] API Development and Documentatio
   - [x] Identity Access Management
   - [x] Server Deployment and Containerization
-- [x] ❌ Standford - CS20SI Tensorflow for Research
 - [x] 🏧 Harvard and Edx - CS50's Introduction to Computer Science
 - [x] 🔘 UT Austin and Edx - Embedded Systems - Shape The World: Microcontroller
+- [x] 📊 DataCamp - Data Visulization with Python
+  - [x] Course 1: Introduction to Data Visulization with Matplotlib
+  - [ ] Course 2: Introduction to Data Visulization with Seaborn
+  - [ ] Course 3: Improving your Data Visulizations in Python
+  - [ ] Course 4: Interactive Data Visualization with Bokeh
+  - [ ] Course 5: Visualizing Geospatial Data in Python
+- [ ] 🈹 Coursera - Natural Language Processing
+  - [x] Natural Language Processing with Classification and Vector Spaces
+  - [ ] Natural Language Processing with Probabilistic Models
+  - [ ] Natural Language Processing with Sequence Models
+  - [ ] Natural Language Processing with Attention Models
+- [x] ❌ Standford - CS20SI Tensorflow for Research
+
 

@@ -49,7 +49,7 @@
 
 - An $L_p$ norm is defined as:
 
-  $||x||_p = (\sum_i |x_i|^p)^{\dfrac{1}{p}} $
+  $||x||_p = (\sum_i |x_i|^p)^{\dfrac{1}{p}}$
 
 - **Why square L2 norm?**: Square of $L_2$ norm is easy to work with due to its properties e.g. derivative of  square of l2 norm w.r.t. an element of x is only dependent on that element while for l2 norm it is dependent on the entire vector. 
 

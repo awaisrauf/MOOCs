@@ -127,6 +127,7 @@ we can still use `SIGNQUIT` to quit this process.
 3. Read dotfile repos on github: [link](https://github.com/search?o=desc&q=dotfiles&s=stars&type=Repositories) and most popular here [link](https://github.com/mathiasbynens/dotfiles)
 4. Dont copy things blindly
 5. Good source [link](https://dotfiles.github.io/)
+
 ### Portability 
 A common problem with dotfiles might not work with different machines, e.g. if they have differetn operating systems or shells. And sometimes we may want to apply some configurations to a specifc machine only.
 

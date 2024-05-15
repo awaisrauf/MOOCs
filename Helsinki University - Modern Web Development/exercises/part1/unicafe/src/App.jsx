@@ -1,23 +1,48 @@
 import {useState} from 'react'
 
-const ShowAvg = ({good, neutral, bad}) => {
-  const total = good + neutral + bad
-  const  avg = ((1*good) + (-1*bad))/total
-  return(
-    <> 
-    <p>avg {avg}</p>
-    </>
-  )
-}
+// const ShowAvg = ({good, neutral, bad}) => {
+//   const total = good + neutral + bad
+//   const  avg = ((1*good) + (-1*bad))/total
+//   return(
+//     <> 
+//     <p>avg {avg}</p>
+//     </>
+//   )
+// }
 
-const ShowPosPercent = ({good, neutral, bad}) => {
-  const total = good + neutral + bad
-  const  posPercent = good/total
-  return(
-    <> 
-    <p> positive {posPercent}%</p>
-    </>
+// const ShowPosPercent = ({good, neutral, bad}) => {
+//   const total = good + neutral + bad
+//   const  posPercent = good/total
+//   return(
+//     <> 
+//     <p> positive {posPercent}%</p>
+//     </>
+//   )
+// }
+
+const Statistics = (props) => {
+  const {good, neutral, bad} = props
+  const all = good+neutral+bad
+  const weightedSum = (1*good) + (0*neutral) + (-1*bad)
+  const avg = weightedSum/all
+  const posPercent = good/all
+  if (all !==0) {
+  return (
+    <div>
+      <p>good {good} </p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {all}</p>
+      <p>avg {avg}</p>
+      <p>positive {posPercent}</p>
+    </div>
   )
+  }
+return (
+  <div>
+    <p>No feedback has given</p>
+  </div>
+)
 }
 
 const App = () => {
@@ -40,12 +65,7 @@ const App = () => {
       <button onClick={actionBad}>bad</button>
 
       <h1>statistics</h1>
-      <p>good {good} </p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {good+bad+neutral}</p>
-      <ShowAvg good={good} neutral={neutral} bad={bad}/>
-      <ShowPosPercent good={good} neutral={neutral} bad={bad}/>
+      <Statistics good={good} neutral={neutral} bad={bad}/>
         
     </div>
   )

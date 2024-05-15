@@ -1,13 +1,24 @@
 import {useState} from 'react'
 
-// const calcAvg = ({good, neutral, bad}) => {
-//   avg = (good_neutral+bad)
-//   return(
-//     <>avg</>
-//   )
-// }
+const ShowAvg = ({good, neutral, bad}) => {
+  const total = good + neutral + bad
+  const  avg = ((1*good) + (-1*bad))/total
+  return(
+    <> 
+    <p>avg {avg}</p>
+    </>
+  )
+}
 
-
+const ShowPosPercent = ({good, neutral, bad}) => {
+  const total = good + neutral + bad
+  const  posPercent = good/total
+  return(
+    <> 
+    <p> positive {posPercent}%</p>
+    </>
+  )
+}
 
 const App = () => {
   // saving clicks of button
@@ -18,6 +29,8 @@ const App = () => {
   const actionGood = () => setGood(good+1)
   const actionBad = () => setBad(bad+1)
   const actionNeutral = () => setNeutral(neutral+1)
+
+  const allVals = [good, neutral, bad]
 
   return (
     <div>
@@ -30,9 +43,9 @@ const App = () => {
       <p>good {good} </p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
-      {/* <p>all {}</p> */}
-      {/* <p>average {calcAvg()}</p> */}
-      {/* <p>positive {}</p> */}
+      <p>all {good+bad+neutral}</p>
+      <ShowAvg good={good} neutral={neutral} bad={bad}/>
+      <ShowPosPercent good={good} neutral={neutral} bad={bad}/>
         
     </div>
   )

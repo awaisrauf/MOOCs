@@ -19,9 +19,15 @@ import {useState} from 'react'
 //     </>
 //   )
 // }
+const Button = (props) => {
+  const {buttonAction, text} = props
+  return (
+  <button onClick={buttonAction}>{text}</button>
+  )
+}
 
 const Statistics = (props) => {
-  const {good, neutral, bad} = props
+  const {good, neutral, bad } = props
   const all = good+neutral+bad
   const weightedSum = (1*good) + (0*neutral) + (-1*bad)
   const avg = weightedSum/all
@@ -45,6 +51,45 @@ return (
 )
 }
 
+
+const StatisticsLine = ({text, values}) => {
+  const [good, neutral, bad] = values
+  const all = good+neutral+bad
+  const weightedSum = (1*good) + (0*neutral) + (-1*bad)
+  const avg = (weightedSum/all).toFixed(2)
+  const posPercent = good/all
+
+  const GetStats = ({label, val}) => {
+    if (label!="positive"){
+      return <p>{label}: {val}</p>
+    }
+    else{
+      return <p>{label}: {val.toFixed(2)}%</p>
+    }
+
+  }
+
+  switch(text){
+    case "good":
+      return <GetStats label={text} val={good}/>
+    case "bad":
+      return <GetStats label={text} val={bad}/>
+    case "neutral":
+      return <GetStats label={text} val={good}/>
+    case "all":
+      return <GetStats label={text} val={good}/>
+    case "average":
+      return <GetStats label={text} val={avg}/>
+    case "positive":
+      return <GetStats label={text} val={posPercent}/>
+
+    default:
+        return 
+
+  }
+  
+}
+
 const App = () => {
   // saving clicks of button
   const [good, setGood] = useState(0)
@@ -59,13 +104,18 @@ const App = () => {
 
   return (
     <div>
-      <h1> give feedback</h1>
-      <button onClick={actionGood}>good</button>
-      <button onClick={actionNeutral}>neutral</button>
-      <button onClick={actionBad}>bad</button>
+      <h1>give feedback</h1>
+      <Button buttonAction={actionGood} text={'good'}/>
+      <Button buttonAction={actionNeutral} text={'neutral'}/>
+      <Button buttonAction={actionBad} text={'bad'}/>
 
       <h1>statistics</h1>
-      <Statistics good={good} neutral={neutral} bad={bad}/>
+      <StatisticsLine text={'good'} values={allVals}/>
+      <StatisticsLine text={'neutral'} values={allVals}/>
+      <StatisticsLine text={'bad'} values={allVals}/>
+      <StatisticsLine text={'all'} values={allVals}/>
+      <StatisticsLine text={'average'} values={allVals}/>
+      <StatisticsLine text={'positive'} values={allVals}/>
         
     </div>
   )

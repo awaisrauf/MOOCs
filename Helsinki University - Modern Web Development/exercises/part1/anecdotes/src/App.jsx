@@ -5,6 +5,24 @@ const getRandomNum = (maxVal) => {
   return randVal
 }
 
+const argMax = (array) => {
+  if (array.length == 0){
+    return -1
+  }
+
+  let maxVal = array[0]
+  let maxIdx = 0
+  for (let i = 1; i < array.length; i++){
+    if( array[i] > maxVal){
+      maxIdx = i
+      maxVal = array[i]
+    }
+  }
+
+return maxIdx
+
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -28,6 +46,7 @@ const App = () => {
     setSelected(randomNum)
   }
 
+  // updates votes
   const VoteButtonAction = () => {
     const VoteButtonHandler = () => {
       console.log(typeof votes[0], votes[0])
@@ -40,12 +59,28 @@ const App = () => {
     return VoteButtonHandler
   }
 
+  // find max vote anecodte
+  const ShowMaxVoteAnecdote = () => {
+    const maxVoteIdx = argMax(votes)
+    return (
+      <div>
+        <p>{anecdotes[maxVoteIdx]}</p> 
+        <p>has {votes[maxVoteIdx]} votes</p>
+      </div>
+    )
+  } 
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]} </p>
       <p> votes {votes[selected]}</p>
       <button onClick={VoteButtonAction(selected)}>vote</button>
       <button onClick={NextButtonAction}> next anecdote</button>
+      <h1>Anecdote with most votes</h1>
+      <ShowMaxVoteAnecdote />
+
+
     </div>
   )
 }

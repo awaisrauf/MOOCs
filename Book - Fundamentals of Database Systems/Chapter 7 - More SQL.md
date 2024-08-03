@@ -19,7 +19,7 @@
 - In `select-project-join` queries, only the True result of the WHERE expression is selected. False and Unknown are discarded. 
 	- but there are some exceptions
 - SQL has queries to check if a value is `NULL`, rather than `=` `<>`. this is because SQL considers each NULL to be different from other NULLs.
-	```SQL
+```SQL
 	SELECT Fname, Lname
 	FROM EMPLOYEE
 	WHERE Super_ssn IS NULL;

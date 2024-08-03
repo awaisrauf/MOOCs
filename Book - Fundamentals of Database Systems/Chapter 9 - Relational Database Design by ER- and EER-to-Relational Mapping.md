@@ -5,8 +5,9 @@
 ### ER to Relational Mapping Algorithm
 - Assume that mapping will create tables with simple single-valued attributes
 
-![[Book - Fundamentals of Database Systems/imgs/7.png]]
-![[23.png]]
+![](imgs/7.png)
+
+![](imgs/23.png)
 
 #### Step 1: Mapping of Regular Entity Types
 
@@ -38,7 +39,7 @@ Two approaches (foreign key and cross-reference) first approach is preferred.
 - **Foreign key approach**: for 1:N relationship type R, identify the relation S that represents entity type at the N-side
 	- include a primary key of T as a foreign key in the S
 - **Relationship relation approach**: another approach is to use relationship relation (cross-reference)
-	- create a separate relation R whose attributes are primary keys of S and T, which will also be foreign keys of S and T. 
+	- create a separate relation R whose attributes are primary keys of S and T, which will also be foreign keys of S and T.
   
 #### Step 5: Mapping of Binary M: N Relationship Types
 
@@ -81,7 +82,8 @@ convert each specialization with m subclass $\{S_1, S_2, ..S_m\}$ and superclass
 	- primrary key of superclass C is propogated to $L_i$ and becomes its primray key
 		- also becomes foreign key to superclass relation
 		- an `EQUIJOIN` on the primary key between $L_i$ and $L$ produces all the specific and inherited attributes of entites in the $S_i$. 
-	- This works for any specialization (disjoin or overlapping, total or partial)![[Screenshot 2024-05-25 at 4.05.51 PM.png]]
+	- This works for any specialization (disjoin or overlapping, total or partial)
+	![](imgs/30.png)
   
 - **Option 8B: Multiple relations - subclass relations only**
 	- Create a relation $L_i$ for each subclass $S_i, 1\leq i\leq m$, with attributes of 
@@ -90,7 +92,8 @@ convert each specialization with m subclass $\{S_1, S_2, ..S_m\}$ and superclass
 	- only works for a specialization whose subclasses are total 
 	- recommended if specialization has disjointedness constraint 
 	- `EQUIJOIN` operation between each subclass and superclass is built into the schema. 
-	- No relation holds all the entites in superclass $C$, hence `OUTER JOIN` or `FULL OUTER JOIN` must be used. ![[Screenshot 2024-05-25 at 4.08.04 PM.png]]
+	- No relation holds all the entites in superclass $C$, hence `OUTER JOIN` or `FULL OUTER JOIN` must be used. 
+	![](imgs/31.png)
 - **Option 8C: Single relation with one type attribute**
 	- Create a single relation $L$ with attributes 
 		- $Attr(L) = \{k,a_1,.., a_n\} \cup \{Attr(S_i)\}. \cup ... \cup \{Attr(S_m)\} \cup t$
@@ -121,4 +124,5 @@ convert each specialization with m subclass $\{S_1, S_2, ..S_m\}$ and superclass
 - create a surrogate key, a new key to unite all the superclasses. In the following, OWNER_id is the surrogate key
 	- it is also recommended to add a type attribute in this
 - For a category whose superclass has same key (e.g., Vehicle_id), no need to add a surrogate key
-![[Screenshot 2024-05-25 at 4.28.03 PM.png]]
+
+![](imgs/32.png)

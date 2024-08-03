@@ -4,6 +4,7 @@
 
 Design a database to keep track of information for an art museum. Assume
 that the following requirements were collected:
+
 - The museum has a collection of ART_OBJECTS. Each ART_OBJECT has a unique Id_no, an Artist (if known), a Year (when it was created if known), a Title, and a Description. The art objects are categorized in several ways, as discussed below.
   
 - ART_OBJECTS are categorized based on their type. There are three main types—PAINTING, SCULPTURE, and STATUE—plus another type called OTHER to accommodate objects that do not fall into one of the three main types.
@@ -28,7 +29,8 @@ Draw an EER schema diagram for this application. Discuss any assumptions you mak
 ## EER Diagram 
 
 [ExcelDraw Link for Better Visbility](https://excalidraw.com/#json=TN4D1Tb2-3GpmgiJ-1NqS,j5OhbunU8-JMBHIM-hGY5g)
-![[Art_museum_EER.svg]]
+
+![](imgs/Art_museum_EER.svg)
 
 ## Justification
 
@@ -67,7 +69,7 @@ It looks like most of the stuff in your EER is correct. 
 # From EER to Relational Mapping
 
 [ExcelDraw Link for a better view](https://excalidraw.com/#json=aCFIfCM6THMEvI62JP_Aw,3SQGspDYy0Cafe669xqMuQ)
-![[relatoin_mapping.svg]]
+![](imgs/relatoin_mapping.svg)
 ### Justification
 1. `ART_OBJECT`, `ARTIST`, `EXHIBITION`, and `EXTERNAL_COLLECTION` are converted into normal relations 
 2. Relationship between `ART_OBJECT` and `ARTIST` is 1:N, hence, a Foreign key is inserted into `ART_OBJECT`

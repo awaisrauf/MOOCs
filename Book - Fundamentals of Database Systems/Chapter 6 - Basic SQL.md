@@ -20,6 +20,7 @@
 - Schema element include 
 	- tables, types, constraints, views, domains, and other constructs 
 - To create a schema, use the CREATE statement
+
 ```SQL
 CREATE SCHEMA COMPANY AUTHORIZATION 'Jsmith';
 ```
@@ -38,7 +39,9 @@ CREATE SCHEMA COMPANY AUTHORIZATION 'Jsmith';
 	  `CREATE TABLE COMPANY.EMPLOYEE`
 	rather than
 	 `CREATE TABLE EMPLOYEE`
- ![[Book - Fundamentals of Database Systems/imgs/3.png]]
+
+ ![](imgs/3.png)
+
  -  **base tables**: Relations created by `CREATE TABLE` are called base tables
 	 - as the table and its rows are actually created by DBMS
  - **Virtual Table: Created by the `CREATE VIEW` command
@@ -82,9 +85,11 @@ The basic data types available for attributes are numeric, char, str, bit str, b
 	- **INTERVAL** is a relative value to increment or decrement the absolute value of a date or time in the format of YEAR/MONTH or DAY/TIMe
 	- all these can be considered as special type of string
 - It is possible to use specific new data types
-	```SQL
-	CREATE DOMAIN SSN_TYPE AS CHAR(9);
+
+```SQL
+CREATE DOMAIN SSN_TYPE AS CHAR(9);
 ```
+
 ## Specifying Constraints in SQL
 
 ### Specifying Attribute Constraints and Attribute Defaults
@@ -92,25 +97,34 @@ The basic data types available for attributes are numeric, char, str, bit str, b
 - NO NULL to not allow NULL values, default for primary key attributes
 - possible to specify `default value` by `DEFAULT <value>` in attribute definition, for most attributes NULL is the default DEFAULT
 - **CHECK**: restrict attribute values. EXAMPLE: The Dnumber should be between 1 and 20. 
-	```SQL
-	Dnumber INT NOT NULL CHECK (Dnumber > 0 AND Dnumber <21)
+- 
+```SQL
+Dnumber INT NOT NULL CHECK (Dnumber > 0 AND Dnumber <21)
 ```
-	 - Can also be used with CREATE DOMAIN statement 
-		```SQL
-		CREATE DOMAIN D_NUM AS INTEGER 
-		 CHECK (D_NUM > 0 AND D_NUM < 21)
-``` 
+  - Can also be used with CREATE DOMAIN statement
+
+```SQL
+CREATE DOMAIN D_NUM AS INTEGER 
+CHECK (D_NUM > 0 AND D_NUM < 21)
+```
+
 	- now D_NUM domain type can be used for all attributes that define this
-### Specifying Key and Referential Integrity Constraints 
+
+### Specifying Key and Referential Integrity Constraints
+
 - **Key Constraint**: Special clause 'PRIMARY KEY' in CREATE TABLE to specify one or more attributes as PRIMARY KEY
-	```SQL 
+  
+```SQL
 	Dnumber INT PRIMARY KEY
 ```
+
 - The `UNIQUE` clause specifies alternate (unique) keys (candidate keys). It can also specified as a unique key for a single attribute
-	```SQL
+
+```SQL
 	Dname VARCHAR(15) UNIQUE
 ```
-- **Referential Integrity** is forced via the `FOREIGN KEY` clause 
+
+- **Referential Integrity** is forced via the `FOREIGN KEY` clause
 	- can be violated when
 		- a tuple is inserted or deleted
 		- foreign key or primary key attribute is updated
@@ -124,17 +138,20 @@ The basic data types available for attributes are numeric, char, str, bit str, b
 	- CASCADE: The action for
 		-  CASCADE ON DELETE is to delete all the referencing tuples
 		- CASCADE ON UPDATE is to change the value of the referencing foreign key attributes to primary key values for all the referencing tuples
-![[Screenshot 2024-05-22 at 6.11.46 PM.png]]
+
+![](./imgs/29.png)
+
 ### Giving Names to Constraints
+
 - possible to give name constraints but they must be unique
 ### Specifying Constraints on Tuples Using Check
 
 - additional constraints can be applied with CHECK at the end of CREATE TABLE
 	- constraints work row-wise as they applied on individual rows
-	```SQL
+  
+```SQL
 	CHECK(Dept_create_date <= Mgr_start_date);
 ```
-
 
 ## Basic Retrieval Queries in SQL
 
@@ -285,20 +302,25 @@ SELECT E.Fname, E.Lname, 1.1*E.Saraly AS Increased_sal
 - For data, time, and similar data types, `+`, `-` can be used for interval increment 
 - `BETWEEN`
 	**EXAMPLE**: Retrieve all employees in department 5 whose salary is between $30000 and $40000
-	```SQL 
+
+```SQL 
 	SELECT *
 	FROM EMPLOYEE
 	WHERE (Salary BETWEEN 30000 AND 40000) AND Dno=5;
 ```
-### Ordering of Query Results 
-- `ORDER BY`SQL allows result tuples to be ordered by the value of one or more attributes that appear in the query result 
+
+### Ordering of Query Results
+
+- `ORDER BY`SQL allows result tuples to be ordered by the value of one or more attributes that appear in the query result
 	- **EXAMPLE**: Retrieve a list of employees and projects they are working on ordered by department and within each department, ordered alphabetically last name, first name
+
 ```SQL
 SELECT D.Dname, E.Lname, E.Fname, P.Pname
 FROM DEPARTMENT AS D, EMPLOYEE AS E, WORKS_ON W, PROJECT AS P
 WHERE D.Dnumber = E.Dno AND E.Ssn = W.ESsn AND W.Pno = P.Pnumber
 ORDER BY D.Dname, E.Lname, E.Fname ASC
 ```
+
 - The default order is DESC but ASC can be specified by ASC keyword
 
 ## INSERT, DELETE, and UPDATE Statements in SQL
@@ -313,23 +335,30 @@ ORDER BY D.Dname, E.Lname, E.Fname ASC
 - `INSERT` is used to add a single tuple (row) in the table (relation)
 	- must add-relation name and list of values for the attributes
 	- order or original table should be followed
-	```SQL
+
+```SQL
 	INSERT INTO EMPLOYEE 
 	VALUES ('Richard', .......)
 ```
+
 - A second form can allow users to specify attributes
 	- but must include all attributes with NO NULL restriction and no default options
-```SQL 
+
+```SQL
 INSERT INTO EMPLOYEE(Fname, Lname, Dno, Ssn)
 VALUES ('Name)
 ```
 
 - Adding multiple tuples is also possible 
-- Two more forms: 1) inserting during CREATE Table and creating a table from results of SELECT![[Book - Fundamentals of Database Systems/imgs/5.png]]
+- Two more forms: 1) inserting during CREATE Table and creating a table from results of SELECT
+
+![](Book - Fundamentals of Database Systems/imgs/5.png)
+
 	- `WORKS_ON_INFO` is created and be searched and worked on 
 	- DELETE by using the `DROP TABLE` command 
 	- This table will not be updated with updates in the WORKS_ON table. For that, view creation is necessary 
 - To create a like one already exists, `LIKE` command is used 
+  
 ```SQL
 	CREATE TABLE D5EMPS LIKE EMPLOYEE
 	(SELECT E.*
@@ -355,7 +384,8 @@ WHERE Lname='Brown';
 	- updating the primary key may propagate to may propagate it to foreign keys if such action is specified 
 	- `SET` clause specifies attributes to be modified and their value
 	**EXAMPLE**
-	```SQL
+
+```SQL
 	UPDATE PROJECT
 	SET Plocation = 'Bellaire', Dnum=5
 	WHERE Pnumber=10;

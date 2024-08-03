@@ -13,7 +13,9 @@
 	- TRUE
 	- FALSE
 	- UNKNOWN
-- Due to this AND, OR, and NOT are different for SQL![[12.png]]
+- Due to this AND, OR, and NOT are different for SQL
+![](imgs/12.png)
+
 - In `select-project-join` queries, only the True result of the WHERE expression is selected. False and Unknown are discarded. 
 	- but there are some exceptions
 - SQL has queries to check if a value is `NULL`, rather than `=` `<>`. this is because SQL considers each NULL to be different from other NULLs.
@@ -54,11 +56,13 @@ WHERE E.Ssn IN (SELECT SSN
 ```
 ### Correlated Nested Query
 Whenever a condition in the `WHERE` clause of a nested query references some attribute of a relation declared in the outer query, two queries are said to be correlated. 
+
 ### `EXISTS` and `UNIQUE` functions 
 - Boolean functions that return `TRUE` or `FALSE` and hence can be used in the WHERE clause. 
 	- `EXISTS` to check if results of the nested query is empty or not
 	**Query**: Reterive names  of each employee who has a dependent with the same first name and is of the same sex as the employee
-	```SQL
+
+```SQL
 	SELECT E.Name
 	FROM EMPLOYEE
 	WHERE EXISTS (SELECT *

@@ -4,7 +4,7 @@
 
 ## Using High-Level Conceptual Data Models for Database Design
 
-![[Book - Fundamentals of Database Systems/imgs/8.png]]
+![](imgs/8.png)
 
 1. requirements collection and analysis: understand data requirements
 	1. functional requirements: user-defined operations (transactions)
@@ -48,17 +48,20 @@
 
 ## Entity Types, Entity Sets, Attributes, and Keys
 
-![[Book - Fundamentals of Database Systems/imgs/9.png]]
+![](imgs/9.png)
 - ER model describes databases as entities, relationships, and attributes
   
 ### Entities and Attributes
 
 - **Entity**: a thing or object in the real world with independent existence
-- **Composite vs Simple (atomic) Attribute**: ![[Book - Fundamentals of Database Systems/imgs/10.png]]
+- **Composite vs Simple (atomic) Attribute**:
+![](imgs/10.png)
 - **Single Valued vs. Multivalued Attributes**: 
 - **Stored vs. Derived Attributes**: age can be derived from DOB
 - **NULL Values**
-- **Complex Attributes**: ![[11.png]]
+- **Complex Attributes**:
+
+![](11.png)
   
 ### Entity Types, Entity Sets, Keys, and Value Sets
 

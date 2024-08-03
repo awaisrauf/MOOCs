@@ -33,7 +33,7 @@
 		- Optical jukebox memories: with multiple CD_ROM platters
 	- **Magnetic Tapes**: least expensive. used for archiving and backup storage. Tape jukeboxes, a bank of tapes that are cataloged can be used
 - Depending on the memory available, a whole or part of DBS can be placed in it. 
-- ![[24.png]]
+- ![](imgs/24.png)
   
 ### Storage Organization of Databases
 
@@ -69,14 +69,14 @@
 	- magnetic material shaped as a circular disk
 	- protected by plastic or acrylic cover
 	- single or double-sided based on the sides it uses for storage of data
-	- disk packs have multiple disks to increase capacity![[25.png]]
+	- disk packs have multiple disks to increase capacity![](imgs/25.png)
 	- Info stored on disk surface in concentric circles of small diameter called tracks
 		- tracks with the same diameter on various surfaces called cylinders. Information on the same cylinder can be accessed fast
 		- number of tracks: few 1000s to 152,000
 		- each track has tens of kBs
 		- each track is divided into smaller blocks or sectors
 		- division of tracks into sectors is hard-coded
-		- one sector size is 512B![[26.png]]
+		- one sector size is 512B![](imgs/26.png)
 - **Blocks:** The division of track into equal-sized blocks (or pages) is set by the operating system during disk formatting (or initialization)
 	- can not be changed dynamically
 	- size ranges from 512 to 8192
@@ -147,7 +147,7 @@
 	- several buffers can be reserved in the main memory to speed up. 
 	- when one buffer is being read or written, the CPU can work on the other one
 	- This parallel execution is possible because an independent disk controller exists 
-- reading and processing can be done in parallel when the time required to process a disk block in memory is less than the time required to read the next block and fill a buffer. ![[27.png]]
+- reading and processing can be done in parallel when the time required to process a disk block in memory is less than the time required to read the next block and fill a buffer. ![](imgs/27.png)
 - Double buffering permits the reading or writing of data on consecutive disk blocks 
 	- eliminates seek time and rotational delays for all but the first block transfer
 
@@ -192,7 +192,7 @@ struct employee {
 	- $R$ is the size of fixed length record
 - Some space if left as B may not be divided exactly: $B-(bfr*R)$ bytes
 	- **Spanned** this unused space can be used by placing part of the next record and a pointer at the end of the first block points to the block containing the rest of the record
-	- **Unspanned**: if records are not allowed to cross block boundaries![[28.png]]
+	- **Unspanned**: if records are not allowed to cross block boundaries![](imgs/28.png)
 - number of blocks needed for a file of $r$ records
 	$b = ceil(r/bfr)$
 

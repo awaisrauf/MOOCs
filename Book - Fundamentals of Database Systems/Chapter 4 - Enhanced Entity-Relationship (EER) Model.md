@@ -16,7 +16,8 @@
 - two reasons for subclasses
 	- some subclasses may have attributes that others do not
 	- some subclasses may participate in relations others do not
-![[13.png]]
+
+![](imgs//13.png)
 
 ### Generalizatoin
 
@@ -28,13 +29,16 @@
 
 - for an entity to be a member of a certain subclass, there could be a condition  (defining predicate and predicate-defined) 
 - membership condition could be based on attributes and will be called attribute-defined
-- a subclass could also be based on the user, called a user-defined![[14.png]]
+- a subclass could also be based on the user, called a user-defined
+![](imgs/14.png)
+
 - Two constraints on specialization: 
 	1. **disjointness or overlapping constraint**: subclasses must be disjoint sets, and the entity could be at most of one subclass
 		- attribute-defined specialization implies disjointness constraint 
 		- defined by d in the circle
-		1. **overlapping**: if not disjoint. entity may be a member of more than one subclass of specialization ![[15.png]]
-	1. **completeness or totalness constraint**: total or partial
+		1. **overlapping**: if not disjoint. entity may be a member of more than one subclass of specialization 
+   ![](imgs/15.png)
+	2. **completeness or totalness constraint**: total or partial
 		1. **total**: every entity in the superclass must be a member of at least one subclass, shown by double line ||. 
 		2. **partial**: entity not to belong to any of the subclasses 
 - These two constraints are independent and create 4 possibilities 
@@ -51,7 +55,8 @@
   
 ## Modeling UNION Types using Categories
 
-![[16.png]]
+![](imgs/16.png)
+
 - to represent a collection of entities from different entity types (unions type or category)
 	- it has two or more superclasses that may represent collections of entities from distinct entity types
 	- whereas other sub/superclass relationships always have a single superclass

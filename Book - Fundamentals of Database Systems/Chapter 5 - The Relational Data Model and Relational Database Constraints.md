@@ -39,7 +39,7 @@
 	- here, each value $v_i$ is an element of $dom(A_i)$ or special case $NULL$
 	- $n$-th value in tuple $t_i$ (corresponding to attribute $A_i$) is $t[A_i]$, or $t_i$, $t.A_i$. 
 	- relation intension or extension terms are also used
-![[Book - Fundamentals of Database Systems/imgs/1.png]]
+![](imgs/1.png)
 
 #### Formal
 
@@ -104,7 +104,10 @@ So a key is a superkey but not vice versa.
 - A database consists of more than one relation and these relation's tuples are connected with each other in various ways. 
 
 - **Relational database schema**: $S$ is a set of relational schemas $S=\{R_1, R_2, R_3, ..., R_m\}$ and a set of **integrity constraints** IC. 
-- A relational database state DB of S is a set of relation states $DB = \{r_1, r_2,..., r_m\}$ such that each $r_i$ is a state of $R_i$ and satisfy integrity constraint![[Book - Fundamentals of Database Systems/imgs/2.png]]
+- A relational database state DB of S is a set of relation states $DB = \{r_1, r_2,..., r_m\}$ such that each $r_i$ is a state of $R_i$ and satisfy integrity constraint
+
+![](imgs/2.png)
+
 - Attributes in different relations should have different names (e.g., in the example above, SSN and Supervisor_SSN)
 ### Entity Integrity, Referential Integrity, and Foreign Keys
 - **Entity integrity constraint** states that no primary key is NULL as they identify individual tuples in the relation
@@ -180,4 +183,4 @@ into EMPLOYEE
    6) Insert <‘453453453’, ‘John’, ‘M’, ‘1990-12-12’, ‘spouse’> into DEPENDENT.
       May be domain constraint error causes the spouse to be in lower case?
    7) 
-![[Book - Fundamentals of Database Systems/imgs/6.png]]
+![](imgs/6.png)

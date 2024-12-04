@@ -136,6 +136,6 @@ urllib3==1.25.8
 virtualenv==20.0.17
 wcwidth==0.1.9
 webencodings==0.5.1
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 widgetsnbextension==3.5.1
 WTForms==2.2.1

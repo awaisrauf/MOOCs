@@ -60,7 +60,7 @@ jupyter-console==6.1.0
 jupyter-core==4.6.3
 kiwisolver==1.2.0
 line-profiler @ file:///C:/Users/Awais%27s%20MLVC/Downloads/line_profiler-3.0.2-cp38-cp38-win_amd64.whl
-Mako==1.1.2
+Mako==1.2.2
 Markdown==3.2.1
 MarkupSafe==1.1.1
 matplotlib==3.2.1
